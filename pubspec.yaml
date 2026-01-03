@@ -1,7 +1,8 @@
 name: orient
 description: "A design system for Flutter. Coming soon."
 version: 0.0.1
-homepage:
+homepage: https://userorient.com
+repository: https://github.com/kamranbekirovyz/orient
 
 environment:
   sdk: ^3.10.4
