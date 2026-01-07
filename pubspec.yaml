@@ -7,13 +7,17 @@ repository: https://github.com/userorient_flutter/orient-ui
 exclude:
   - templates/**
 
+executables:
+  orient_ui:
+
 environment:
   sdk: ^3.10.4
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
-    sdk: flutter 
+    sdk: flutter
+  http: ^1.2.0 
 
 dev_dependencies:
   flutter_test:

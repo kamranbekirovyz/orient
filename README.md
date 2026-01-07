@@ -7,13 +7,14 @@ A design system for Flutter. Copy-paste widgets that you own! 😍
 ## Installation
 
 ```bash
-dart pub global activate orient
+dart pub global activate orient_ui
 ```
 
 ## Components
 
-- [ ] Button
+- [x] Button
 - [ ] NavigationRail
+- [ ] Toast
 - [ ] AdaptivePageRoute
 
 ## License
