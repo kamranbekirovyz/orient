@@ -1,3 +1,9 @@
+## 0.0.2
+
+* Initial release of CLI
+
 ## 0.0.1
 
-* TODO: Describe initial release.
+* Button component
+* Spinner component  
+* Theme system with light/dark mode
