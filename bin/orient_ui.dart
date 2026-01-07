@@ -4,6 +4,11 @@ import 'package:http/http.dart' as http;
 const baseUrl =
     'https://raw.githubusercontent.com/userorient/orient-ui/main/templates';
 
+final components = {
+  'button': ComponentInfo('button.dart', dependencies: ['spinner']),
+  'spinner': ComponentInfo('spinner.dart'),
+};
+
 void main(List<String> args) async {
   if (args.isEmpty) {
     _printUsage();
@@ -18,7 +23,7 @@ void main(List<String> args) async {
       break;
     case 'add':
       if (args.length < 2) {
-        print('❌ Please specify a component: orient_ui add <component>');
+        _listComponents();
         return;
       }
       await _addCommand(args[1]);
@@ -32,7 +37,16 @@ void _printUsage() {
   print('Orient UI - Design system for Flutter');
   print('Usage:');
   print('  orient_ui init           Initialize styling');
-  print('  orient_ui add <widget>   Add a widget (button, etc)');
+  print('  orient_ui add            List available components');
+  print('  orient_ui add <widget>   Add a widget');
+}
+
+void _listComponents() {
+  print('📦 Available widgets:\n');
+  for (final name in components.keys) {
+    print('  • $name');
+  }
+  print('\n💡 Usage: orient_ui add <widget>');
 }
 
 Future<void> _initCommand() async {
@@ -57,14 +71,9 @@ Future<void> _initCommand() async {
 Future<void> _addCommand(String widget) async {
   print('📦 Adding $widget...');
 
-  final components = {
-    'button': ComponentInfo('button.dart', dependencies: ['spinner']),
-    'spinner': ComponentInfo('spinner.dart'),
-  };
-
   if (!components.containsKey(widget)) {
     print('❌ Widget "$widget" not found');
-    print('Available: ${components.keys.join(', ')}');
+    _listComponents();
     exit(1);
   }
 
