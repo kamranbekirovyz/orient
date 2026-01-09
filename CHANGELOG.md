@@ -1,3 +1,7 @@
+## 0.0.3
+
+* Improved CLI prints to be more helpful
+
 ## 0.0.2
 
 * Initial release of CLI
