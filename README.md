@@ -33,16 +33,10 @@ orient_ui add
 ## ✨ Features
 
 ### ✅ Available Now
-- CLI tool for easy component installation
-- Styling system with theme support
-- Light & Dark mode theming
+- CLI
+- Styling system (dark & light theme support)
 - Button component with 6 variants
 - Spinner component
-
-### 🚧 Coming Soon
-- Accessibility improvements
-- Focus management
-- Keyboard navigation
 
 ## 🎨 Components
 
