@@ -13,7 +13,7 @@ class Button extends StatefulWidget {
 
   const Button({
     super.key,
-    required this.onPressed,
+    this.onPressed,
     required this.label,
     this.icon,
     this.loading = false,
@@ -116,61 +116,64 @@ class _ButtonState extends State<Button> {
               : SystemMouseCursors.click,
           child: GestureDetector(
             onTap: isDisabled ? null : widget.onPressed,
-            child: Container(
-              padding: padding,
-              height: height,
-              width: widget._isSmall ? null : double.maxFinite,
-              decoration: BoxDecoration(
-                color: _getBackgroundColor(bg),
-                border: widget.variant == ButtonVariant.outline
-                    ? Border.all(color: border, width: 1)
-                    : null,
-                borderRadius: widget.variant == ButtonVariant.link
-                    ? null
-                    : BorderRadius.circular(12),
-                boxShadow: _isFocused && !isDisabled
-                    ? [
-                        BoxShadow(
-                          color: colors.primary.withOpacity(0.4),
-                          spreadRadius: 2,
+            child: Opacity(
+              opacity: isDisabled ? 0.5 : 1.0,
+              child: Container(
+                padding: padding,
+                height: height,
+                width: widget._isSmall ? null : double.maxFinite,
+                decoration: BoxDecoration(
+                  color: _getBackgroundColor(bg),
+                  border: widget.variant == ButtonVariant.outline
+                      ? Border.all(color: border, width: 1)
+                      : null,
+                  borderRadius: widget.variant == ButtonVariant.link
+                      ? null
+                      : BorderRadius.circular(12),
+                  boxShadow: _isFocused && !isDisabled
+                      ? [
+                          BoxShadow(
+                            color: colors.primary.withOpacity(0.4),
+                            spreadRadius: 2,
+                          ),
+                        ]
+                      : null,
+                ),
+                child: Row(
+                  mainAxisSize: widget._isSmall
+                      ? MainAxisSize.min
+                      : MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (widget.icon != null || widget.loading) ...[
+                      if (widget.loading)
+                        SizedBox(
+                          height: iconSize,
+                          width: iconSize,
+                          child: Center(child: Spinner(color: fg)),
+                        )
+                      else if (widget.icon != null)
+                        IconTheme(
+                          data: IconThemeData(color: fg, size: iconSize),
+                          child: widget.icon!,
                         ),
-                      ]
-                    : null,
-              ),
-              child: Row(
-                mainAxisSize: widget._isSmall
-                    ? MainAxisSize.min
-                    : MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (widget.icon != null || widget.loading) ...[
-                    if (widget.loading)
-                      SizedBox(
-                        height: iconSize,
-                        width: iconSize,
-                        child: Center(child: Spinner(color: fg)),
-                      )
-                    else if (widget.icon != null)
-                      IconTheme(
-                        data: IconThemeData(color: fg, size: iconSize),
-                        child: widget.icon!,
+                      SizedBox(width: iconSpacing),
+                    ],
+                    Text(
+                      widget.label,
+                      style: TextStyle(
+                        color: fg,
+                        fontSize: fontSize,
+                        decorationColor: fg,
+                        fontWeight: FontWeight.w500,
+                        decoration:
+                            widget.variant == ButtonVariant.link && _isHovered
+                            ? TextDecoration.underline
+                            : null,
                       ),
-                    SizedBox(width: iconSpacing),
-                  ],
-                  Text(
-                    widget.label,
-                    style: TextStyle(
-                      color: fg,
-                      fontSize: fontSize,
-                      decorationColor: fg,
-                      fontWeight: FontWeight.w500,
-                      decoration:
-                          widget.variant == ButtonVariant.link && _isHovered
-                          ? TextDecoration.underline
-                          : null,
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
