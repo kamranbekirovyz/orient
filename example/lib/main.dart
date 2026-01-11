@@ -118,6 +118,13 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: Icon(Icons.delete),
             ),
             const SizedBox(height: 24),
+            Button(
+              label: 'This button disabled',
+              loading: _creatingProject,
+              variant: ButtonVariant.primary,
+              icon: Icon(Icons.disabled_by_default),
+            ),
+            const SizedBox(height: 24),
             Button.small(
               onPressed: () async {},
               label: 'Translate',

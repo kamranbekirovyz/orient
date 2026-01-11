@@ -29,17 +29,20 @@ class SpinnerState extends State<Spinner> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _controller,
-      builder: (context, child) {
-        return Transform.rotate(
-          angle: _controller.value * 2 * 3.14159,
-          child: CustomPaint(
-            painter: _SpinnerPainter(color: widget.color),
-            size: const Size.square(16),
-          ),
-        );
-      },
+    return Semantics(
+      label: 'Loading',
+      child: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          return Transform.rotate(
+            angle: _controller.value * 2 * 3.14159,
+            child: CustomPaint(
+              painter: _SpinnerPainter(color: widget.color),
+              size: const Size.square(16),
+            ),
+          );
+        },
+      ),
     );
   }
 }
