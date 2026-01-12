@@ -8,11 +8,11 @@ A design system for Flutter by [UserOrient](https://app.userorient.com). Copy-pa
 
 Cross-platform components that work perfectly on iOS, Android, Web, macOS, Windows, and Linux.
 
-> ⚠️ Early development. API may change.
->
-> 🚧 Building in public on [X](https://x.com/kamranebkirovyz)
->
-> 💬 Your feedback and contributions are welcomed!
+> [!WARNING]
+> Early development. API may change.
+
+> [!NOTE]
+> Building in public on [X](https://x.com/kamranebkirovyz). Your feedback and contributions are welcomed!
 
 ## 🚀 Getting Started
 
