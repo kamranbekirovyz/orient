@@ -1,5 +1,9 @@
 ## Orient UI
 
+<p align="center">
+  <img src="https://ui.userorient.com/_next/image?url=%2Fassets%2Fui%2Fhero.png&w=1920&q=75" alt="Orient UI Components" />
+</p>
+
 A design system for Flutter by [UserOrient](https://app.userorient.com). Copy-paste widgets that you own! 😍
 
 Cross-platform components that work perfectly on iOS, Android, Web, macOS, Windows, and Linux.
@@ -10,38 +14,81 @@ Cross-platform components that work perfectly on iOS, Android, Web, macOS, Windo
 >
 > 💬 Your feedback and contributions are welcomed!
 
-## 📦 Installation
+## 🚀 Getting Started
+
+### 1. Install the CLI
 
 ```bash
 dart pub global activate orient_ui
 ```
 
-## 🚀 Usage
+### 2. Initialize Styling
+
+Navigate to your Flutter project and run:
 
 ```bash
-# Initialize styling system
 orient_ui init
-
-# Add components
-orient_ui add button
-orient_ui add spinner
-
-# List available components
-orient_ui add
 ```
 
-## ✨ Features
+This creates `lib/styling.dart` in your project. **You own this file** — move it wherever you want (e.g., `lib/core/styling.dart`).
 
-### ✅ Available Now
-- CLI
-- Styling system (dark & light theme support)
-- Button component with 6 variants
-- Spinner component
+### 3. Wrap Your App
+
+Wrap your `MaterialApp` with the `Styling` widget:
+
+```dart
+import 'package:your_app/styling.dart'; // adjust path if you moved it
+
+void main() {
+  runApp(
+    Styling(
+      brightness: Brightness.light, // or Brightness.dark
+      child: MaterialApp(
+        home: MyHomePage(),
+      ),
+    ),
+  );
+}
+```
+
+### 4. Add Components
+
+```bash
+orient_ui add button
+```
+
+This creates `lib/button.dart`. Move it wherever you want (e.g., `lib/widgets/button.dart`).
+
+**Important:** Update the import inside the component file to match where you placed `styling.dart`:
+
+```dart
+// In button.dart, update this line:
+import 'package:your_app/styling.dart'; // adjust to your path
+```
+
+### 5. Use Components
+
+```dart
+import 'package:your_app/button.dart'; // your path
+
+Button(
+  label: 'Click me',
+  onPressed: () {},
+)
+```
+
+## 📦 Available Commands
+
+```bash
+orient_ui init          # Initialize styling system
+orient_ui add           # List available components
+orient_ui add <widget>  # Add a specific widget
+```
 
 ## 🎨 Components
 
 ### Available Now
-- [x] Button
+- [x] Button (6 variants)
 - [x] Spinner
 
 ### Coming Soon
@@ -57,6 +104,18 @@ orient_ui add
 - [ ] RadioListTile
 - [ ] Menu
 - [ ] Confirmation Dialog
+
+## ✨ Customizing Colors
+
+The `styling.dart` file contains `AppColors` with light and dark theme defaults. Edit them to match your brand:
+
+```dart
+static const light = AppColors(
+  primary: Color(0xFF18181B),       // your primary color
+  primaryForeground: Color(0xFFFAFAFA),
+  // ... customize all colors
+);
+```
 
 ## 📄 License
 
