@@ -25,4 +25,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: example/build/web
-          cname: components.userorient.com
+          cname: widgets.userorient.com
