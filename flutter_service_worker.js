@@ -15,9 +15,9 @@ const RESOURCES = {"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/AssetManifest.bin.json": "a36b403ad2684c6e36873f9680e672ba",
 "assets/fonts/MaterialIcons-Regular.otf": "89ef9679f51fc2f59827786d9e5c21f3",
-"assets/NOTICES": "2d20a7320d9a2e02367f7f1ce3349c87",
+"assets/NOTICES": "29596eb6eaaf2701653c24e2271e3a8c",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "33b7d9392238c04c131b6ce224e13711",
-"assets/packages/flutter_tabler_icons/assets/fonts/tabler-icons.ttf": "7bfd53e82eba07b0d16601eaa22ff3bc",
+"assets/packages/flutter_tabler_icons/assets/fonts/tabler-icons.ttf": "a92cc8a8bf911f0e59c1a27fc1b7baea",
 "assets/FontManifest.json": "eaa0c4bc9bd3a48f2f9225c9fdaf5783",
 "assets/AssetManifest.bin": "34acdf62e437315a5db8064b0a1b9e65",
 "canvaskit/chromium/canvaskit.wasm": "a726e3f75a84fcdf495a15817c63a35d",
@@ -33,9 +33,9 @@ const RESOURCES = {"flutter.js": "24bc71911b75b5f8135c949e27a2984e",
 "canvaskit/canvaskit.js.symbols": "a3c9f77715b642d0437d9c275caba91e",
 "canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"flutter_bootstrap.js": "c6f3187ee810f2b6067978e1dc3d9e07",
+"flutter_bootstrap.js": "eab13cafdf57eea4b23d077d530d70cc",
 "version.json": "ff966ab969ba381b900e61629bfb9789",
-"main.dart.js": "0ffdacd132e30116856ec45cd0c353d2"};
+"main.dart.js": "c504b59d96c28cc0041d3a31f3ff4d03"};
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = ["main.dart.js",
