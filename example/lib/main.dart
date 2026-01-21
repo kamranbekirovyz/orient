@@ -1,43 +1,42 @@
+import 'package:flutter/material.dart';
 import 'package:example/styling.dart';
 import 'package:example/widgets/button.dart';
 import 'package:example/widgets/nav_bar.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:example/pages/button_page.dart';
+import 'package:example/pages/spinner_page.dart';
+import 'package:example/pages/nav_bar_page.dart';
 
-final ValueNotifier<Brightness> brightnessNotifier = ValueNotifier(
-  Brightness.light,
-);
+final _brightnessNotifier = ValueNotifier(Brightness.light);
 
 void main() {
-  runApp(const MyApp());
+  runApp(const OrientUIPlayground());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class OrientUIPlayground extends StatelessWidget {
+  const OrientUIPlayground({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: brightnessNotifier,
-      builder: (context, Brightness brightness, child) {
+    return ValueListenableBuilder<Brightness>(
+      valueListenable: _brightnessNotifier,
+      builder: (context, brightness, _) {
+        final isDark = brightness == Brightness.dark;
+
         return Styling(
           brightness: brightness,
           child: MaterialApp(
-            themeMode: brightness == Brightness.dark
-                ? ThemeMode.dark
-                : ThemeMode.light,
-            darkTheme: ThemeData(
-              brightness: Brightness.dark,
-              scaffoldBackgroundColor: Colors.black,
-              appBarTheme: AppBarThemeData(backgroundColor: Colors.black),
-            ),
+            debugShowCheckedModeBanner: false,
+            title: 'Orient UI',
+            themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
             theme: ThemeData(
               brightness: Brightness.light,
               scaffoldBackgroundColor: Colors.white,
-              appBarTheme: AppBarThemeData(backgroundColor: Colors.white),
             ),
-            title: 'Flutter Demo',
-            home: const MyHomePage(),
+            darkTheme: ThemeData(
+              brightness: Brightness.dark,
+              scaffoldBackgroundColor: const Color(0xFF09090B),
+            ),
+            home: const PlaygroundShell(),
           ),
         );
       },
@@ -45,127 +44,87 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class PlaygroundShell extends StatefulWidget {
+  const PlaygroundShell({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<PlaygroundShell> createState() => _PlaygroundShellState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  bool _loggingIn = false;
-  bool _creatingProject = false;
-  int _navBarIndex = 0;
+class _PlaygroundShellState extends State<PlaygroundShell> {
+  int _currentIndex = 0;
+
+  static const _pages = [
+    _PageInfo(
+      title: 'Button',
+      icon: Icons.smart_button_outlined,
+      page: ButtonPage(),
+    ),
+    _PageInfo(title: 'Spinner', icon: Icons.refresh, page: SpinnerPage()),
+    _PageInfo(title: 'NavBar', icon: Icons.menu, page: NavBarPage()),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: NavBar(
-        railHeader: FlutterLogo(size: 120, style: FlutterLogoStyle.horizontal),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            mainAxisAlignment: .center,
-            children: [
-              ValueListenableBuilder<Brightness>(
-                valueListenable: brightnessNotifier,
-                builder: (context, value, child) {
-                  return Button(
-                    onPressed: () async {
-                      brightnessNotifier.value = value == Brightness.light
-                          ? Brightness.dark
-                          : Brightness.light;
-                    },
-                    icon: Icon(
-                      value == Brightness.light
-                          ? Icons.dark_mode
-                          : Icons.light_mode,
-                    ),
-                    label: 'Toggle theme',
-                    variant: ButtonVariant.outline,
-                  );
-                },
-              ),
-              const SizedBox(height: 24),
-              Button(
-                onPressed: () async {
-                  setState(() {
-                    _loggingIn = true;
-                  });
-
-                  await Future.delayed(const Duration(seconds: 1));
-
-                  setState(() {
-                    _loggingIn = false;
-                  });
-                },
-                label: _loggingIn ? 'Checking...' : 'Log in',
-                variant: ButtonVariant.primary,
-                loading: _loggingIn,
-              ),
-              const SizedBox(height: 24),
-              Button(
-                onPressed: () async {
-                  setState(() {
-                    _creatingProject = true;
-                  });
-
-                  await Future.delayed(const Duration(seconds: 1));
-
-                  setState(() {
-                    _creatingProject = false;
-                  });
-                },
-                label: _creatingProject ? 'Deleting...' : 'Delete project',
-                loading: _creatingProject,
-                variant: ButtonVariant.destructive,
-                icon: Icon(Icons.delete),
-              ),
-              const SizedBox(height: 24),
-              Button(
-                label: 'This button disabled',
-                loading: _creatingProject,
-                variant: ButtonVariant.primary,
-                icon: Icon(Icons.disabled_by_default),
-              ),
-              const SizedBox(height: 24),
-              Button.small(
-                onPressed: () async {},
-                label: 'Translate',
-                variant: ButtonVariant.secondary,
-                icon: Icon(Icons.translate),
-              ),
-              const SizedBox(height: 24),
-              Button.small(
-                onPressed: () async {},
-                label: 'Invite members',
-                variant: ButtonVariant.ghost,
-              ),
-              const SizedBox(height: 24),
-              Button.small(
-                onPressed: () async {},
-                label: 'Visit website',
-                variant: ButtonVariant.link,
-              ),
-            ],
-          ),
-        ),
-        currentIndex: _navBarIndex,
-        onTap: (int index) {
-          setState(() {
-            _navBarIndex = index;
-          });
-        },
-        items: [
-          NavBarItem(
-            icon: Icon(TablerIcons.layout_dashboard),
-            label: 'Dashboard',
-          ),
-          NavBarItem(icon: Icon(TablerIcons.users), label: 'Members'),
-          NavBarItem(icon: Icon(TablerIcons.plug), label: 'Docs'),
-          NavBarItem(icon: Icon(TablerIcons.settings), label: 'Settings'),
-        ],
+        currentIndex: _currentIndex,
+        onTap: (index) => setState(() => _currentIndex = index),
+        items: _pages
+            .map((p) => NavBarItem(icon: Icon(p.icon), label: p.title))
+            .toList(),
+        railHeader: _buildHeader(),
+        railFooter: _buildThemeToggle(),
+        body: _pages[_currentIndex].page,
       ),
     );
   }
+
+  Widget _buildHeader() {
+    return const Column(
+      children: [
+        Text(
+          'Orient UI',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+        ),
+        SizedBox(height: 4),
+        Text(
+          'Widget Playground',
+          style: TextStyle(fontSize: 14, color: Color(0xFF71717A)),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildThemeToggle() {
+    return ValueListenableBuilder<Brightness>(
+      valueListenable: _brightnessNotifier,
+      builder: (context, brightness, _) {
+        final isDark = brightness == Brightness.dark;
+
+        return Button.small(
+          onPressed: () {
+            _brightnessNotifier.value = isDark
+                ? Brightness.light
+                : Brightness.dark;
+          },
+          icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+          label: isDark ? 'Light mode' : 'Dark mode',
+          variant: ButtonVariant.ghost,
+        );
+      },
+    );
+  }
+}
+
+class _PageInfo {
+  final String title;
+  final IconData icon;
+  final Widget page;
+
+  const _PageInfo({
+    required this.title,
+    required this.icon,
+    required this.page,
+  });
 }
