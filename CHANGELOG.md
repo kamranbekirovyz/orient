@@ -1,3 +1,8 @@
+## 0.0.7
+
+* Added new widget: `Toast`.
+* Moved button-related colors to separate `ButtonColors`.
+
 ## 0.0.6
 
 * Added new widget: `NavBar`
