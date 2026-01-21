@@ -107,7 +107,7 @@ orient_ui add <widget>  # Add a specific widget
 
 ## ✅ Quality
 
-![Tests](https://github.com/userorient/orient-ui/actions/workflows/test.yml/badge.svg)
+![Tests](https://github.com/userorient/orient-ui/actions/workflows/test.yml/badge.svg?branch=main)
 
 All widgets are tested for rendering, interaction, accessibility, and theming.
 
