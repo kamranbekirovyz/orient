@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:example/styling.dart';
 import 'package:example/widgets/button.dart';
 import 'package:example/widgets/nav_bar.dart';
@@ -74,7 +76,7 @@ class _PlaygroundShellState extends State<PlaygroundShell> {
             .map((p) => NavBarItem(icon: Icon(p.icon), label: p.title))
             .toList(),
         railHeader: _buildHeader(),
-        railFooter: _buildThemeToggle(),
+        railFooter: _buildFooter(),
         body: _pages[_currentIndex].page,
       ),
     );
@@ -96,23 +98,56 @@ class _PlaygroundShellState extends State<PlaygroundShell> {
     );
   }
 
-  Widget _buildThemeToggle() {
-    return ValueListenableBuilder<Brightness>(
-      valueListenable: _brightnessNotifier,
-      builder: (context, brightness, _) {
-        final isDark = brightness == Brightness.dark;
+  Widget _buildFooter() {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildLinkButton(
+              icon: TablerIcons.world,
+              url: 'https://ui.userorient.com',
+            ),
+            const SizedBox(width: 8),
+            _buildLinkButton(
+              icon: TablerIcons.brand_github,
+              url: 'https://github.com/userorient/orient-ui',
+            ),
+            const SizedBox(width: 8),
+            _buildLinkButton(
+              icon: TablerIcons.package,
+              url: 'https://pub.dev/packages/orient_ui',
+            ),
+          ],
+        ),
+        const SizedBox(height: 12),
+        ValueListenableBuilder<Brightness>(
+          valueListenable: _brightnessNotifier,
+          builder: (context, brightness, _) {
+            final isDark = brightness == Brightness.dark;
 
-        return Button.small(
-          onPressed: () {
-            _brightnessNotifier.value = isDark
-                ? Brightness.light
-                : Brightness.dark;
+            return Button.small(
+              onPressed: () {
+                _brightnessNotifier.value =
+                    isDark ? Brightness.light : Brightness.dark;
+              },
+              icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
+              label: isDark ? 'Light mode' : 'Dark mode',
+              variant: ButtonVariant.ghost,
+            );
           },
-          icon: Icon(isDark ? Icons.light_mode : Icons.dark_mode),
-          label: isDark ? 'Light mode' : 'Dark mode',
-          variant: ButtonVariant.ghost,
-        );
-      },
+        ),
+      ],
+    );
+  }
+
+  Widget _buildLinkButton({required IconData icon, required String url}) {
+    return IconButton(
+      onPressed: () => launchUrl(Uri.parse(url)),
+      icon: Icon(icon, size: 20),
+      style: IconButton.styleFrom(
+        foregroundColor: const Color(0xFF71717A),
+      ),
     );
   }
 }
