@@ -41,6 +41,8 @@ Want to say thanks? Use <a href="https://userorient.com">UserOrient</a> SDK in y
 
 > [!WARNING]
 > Early development. API may change.
+
+> [!JOIN THE FLOW]
 > Building in public on [X/Twitter](https://x.com/kamranebkirovyz). Your feedback and contributions are welcomed!
 
 ## 🎬 Getting Started
