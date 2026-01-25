@@ -173,7 +173,7 @@ class _ButtonState extends State<Button> {
                         decoration:
                             widget.variant == ButtonVariant.link && _isHovered
                             ? TextDecoration.underline
-                            : null,
+                            : TextDecoration.none,
                       ),
                     ),
                   ],

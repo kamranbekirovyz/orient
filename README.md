@@ -92,17 +92,17 @@ orient_ui add <widget>  # Add a specific widget
 - [x] Spinner
 - [x] NavBar (Navigation Rail + Bottom Bar)
 - [x] Toast
-- [x] Empty State
+- [x] EmptyState
+- [x] ConfirmationPopup
 
 ### Coming Soon
+- [ ] Popup
 - [ ] TextField
-- [ ] Dialog
 - [ ] ListTile
 - [ ] TabBar
 - [ ] SwitchListTile
 - [ ] RadioListTile
 - [ ] Menu
-- [ ] Confirmation Dialog
 
 ## ✅ Quality
 

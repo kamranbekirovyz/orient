@@ -6,6 +6,7 @@ final Breakpoints _breakpoints = Breakpoints(
 );
 
 // LIGHT
+const Color _backgroundLight = Color(0xFFFFFFFF);
 const Color _borderLight = Color(0xFFE4E4E7);
 const Color _primaryTextLight = Color(0xff2A2A2A);
 const Color _secondaryTextLight = Color(0xffACAEAF);
@@ -39,6 +40,7 @@ const ToastColors _toastColorsLight = ToastColors(
 );
 
 // DARK
+const Color _backgroundDark = Color(0xFF303030);
 const Color _borderDark = Color(0xFF27272A);
 const Color _primaryTextDark = Color(0xffFAFAFA);
 const Color _secondaryTextDark = Color(0xffB2B2B2);
@@ -73,6 +75,7 @@ const ToastColors _toastColorsDark = ToastColors(
 
 // NO TOUCHING
 final AppColors _appColorsLight = AppColors(
+  background: _backgroundLight,
   border: _borderLight,
   primaryText: _primaryTextLight,
   secondaryText: _secondaryTextLight,
@@ -82,6 +85,7 @@ final AppColors _appColorsLight = AppColors(
 );
 
 final AppColors _appColorsDark = AppColors(
+  background: _backgroundDark,
   border: _borderDark,
   primaryText: _primaryTextDark,
   secondaryText: _secondaryTextDark,
@@ -200,6 +204,7 @@ class ToastColors {
 }
 
 class AppColors {
+  final Color background;
   final Color border;
   final Color primaryText;
   final Color secondaryText;
@@ -210,6 +215,7 @@ class AppColors {
   final ToastColors toast;
 
   const AppColors({
+    required this.background,
     required this.border,
     required this.primaryText,
     required this.secondaryText,
