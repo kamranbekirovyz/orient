@@ -1,20 +1,32 @@
-## Orient UI
-
 <p align="center">
-  <img src="https://ui.userorient.com/_next/image?url=%2Fassets%2Fui%2Fhero.png&w=1920&q=75" alt="Orient UI Components" />
+  <h1 align="center">Orient UI</h1>
+  <p align="center">Design system for Flutter without Material or Cupertino! 😍</p>
+  <p align="center">
+    <img src="https://ui.userorient.com/_next/image?url=%2Fassets%2Fui%2Fhero.png&w=1920&q=75" alt="Orient UI Components" />
+  </p>
 </p>
 
-A design system for Flutter by [UserOrient](https://userorient.com) without any dependencies! 😍
+<p align="center">
+  <a href="https://twitter.com/kamranbekirovyz">
+    <img src="https://img.shields.io/twitter/follow/kamranbekirovyz?style=social">
+  </a>
+  <a href="https://twitter.com/userorient">
+    <img src="https://img.shields.io/twitter/follow/userorient?style=social">
+  </a>
+</p>
 
-Cross-platform components that work perfectly on iOS, Android, Web, macOS, Windows, and Linux.
+## Features
+
+- 🌍 **Cross-platform**. Works on iOS, Android, Web, macOS, Windows, and Linux.
+- 🎨 **No Material or Cupertino**. Neutral design system with total freedom to customize.
+- 📦 **You own the code**. Generated files are yours to modify however you want.
+- 🔓 **No lock-in**. No dependency on a package, just plain Dart files in your project.
 
 > [!WARNING]
 > Early development. API may change.
-
-> [!NOTE]
 > Building in public on [X](https://x.com/kamranebkirovyz). Your feedback and contributions are welcomed!
 
-## 🚀 Getting Started
+## 🎬 Getting Started
 
 ### 1. Install the CLI
 
@@ -22,7 +34,7 @@ Cross-platform components that work perfectly on iOS, Android, Web, macOS, Windo
 dart pub global activate orient_ui
 ```
 
-### 2. Initialize Styling
+### 2. Initialize
 
 Navigate to your Flutter project and run:
 
@@ -30,7 +42,7 @@ Navigate to your Flutter project and run:
 orient_ui init
 ```
 
-This creates `lib/styling.dart` in your project. **You own this file** — move it wherever you want (e.g., `lib/core/styling.dart`).
+This creates `lib/styling.dart` in your project. **You own this file**: move it wherever you want (e.g., `lib/core/styling.dart`).
 
 ### 3. Wrap Your App
 
