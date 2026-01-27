@@ -66,10 +66,16 @@ class ConfirmationPopup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final styling = Styling.of(context);
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isDesktop = screenWidth >= styling.breakpoints.desktop;
+
+    final padding = isDesktop
+        ? const EdgeInsets.only(top: 64, bottom: 48, left: 48, right: 48)
+        : const EdgeInsets.only(top: 32, bottom: 24, left: 24, right: 24);
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.only(top: 64, bottom: 48, left: 48, right: 48),
+      padding: padding,
       decoration: BoxDecoration(
         color: styling.colors.background,
         borderRadius: BorderRadius.circular(24),
