@@ -7,6 +7,7 @@ const baseUrl =
 final components = {
   'button': ComponentInfo('button.dart', dependencies: ['spinner']),
   'confirmation_popup': ComponentInfo('confirmation_popup.dart', dependencies: ['button']),
+  'copy_button': ComponentInfo('copy_button.dart'),
   'empty_state': ComponentInfo('empty_state.dart'),
   'nav_bar': ComponentInfo('nav_bar.dart'),
   'spinner': ComponentInfo('spinner.dart'),

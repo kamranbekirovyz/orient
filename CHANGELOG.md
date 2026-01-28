@@ -1,3 +1,7 @@
+## 0.1.2
+
+* Added new widget: `CopyButton`.
+
 ## 0.1.1
 
 * Fixed `ConfirmationPopup`'s mobile responsiveness.

@@ -1,4 +1,5 @@
 import 'package:example/pages/confirmation_popup_page.dart';
+import 'package:example/pages/copy_button_page.dart';
 import 'package:example/pages/empty_state_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tabler_icons/flutter_tabler_icons.dart';
@@ -89,6 +90,11 @@ class _PlaygroundShellState extends State<PlaygroundShell> {
       title: 'Confirmation',
       icon: Icons.help_outline,
       page: ConfirmationPopupPage(),
+    ),
+    _PageInfo(
+      title: 'Copy Button',
+      icon: Icons.copy,
+      page: CopyButtonPage(),
     ),
   ];
 
