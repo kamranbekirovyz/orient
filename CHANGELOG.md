@@ -1,3 +1,7 @@
+## 0.1.3
+
+* Added press animation to `Button`
+
 ## 0.1.2
 
 * Added new widget: `CopyButton`.
