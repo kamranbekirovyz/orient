@@ -46,6 +46,10 @@ void main() {
 
         // After animation, check icon should be visible
         expect(find.byType(CustomPaint), findsOneWidget);
+
+        // Advance past the 2-second reset timer
+        await tester.pump(const Duration(seconds: 2));
+        await tester.pumpAndSettle();
       });
 
       testWidgets('returns to copy icon after delay', (tester) async {
@@ -80,6 +84,10 @@ void main() {
         await tester.pumpAndSettle();
 
         expect(callCount, 1);
+
+        // Advance past the 2-second reset timer
+        await tester.pump(const Duration(seconds: 2));
+        await tester.pumpAndSettle();
       });
     });
 
@@ -133,6 +141,10 @@ void main() {
 
         // Should not throw
         expect(find.byType(CopyButton), findsOneWidget);
+
+        // Advance past the 2-second reset timer
+        await tester.pump(const Duration(seconds: 2));
+        await tester.pumpAndSettle();
       });
     });
 
@@ -145,6 +157,7 @@ void main() {
         await tester.tap(find.byType(CopyButton));
 
         // Pump a few frames to check animation is running
+        await tester.pump();
         await tester.pump(const Duration(milliseconds: 25));
 
         final opacity = tester.widget<Opacity>(find.byType(Opacity));
