@@ -7,6 +7,16 @@ import 'package:flutter/widgets.dart';
 // Breakpoints
 const double _desktopBreakpoint = 600;
 
+// Radii
+const double _radiusSmall = 8;
+const double _radiusMedium = 12;
+const double _radiusLarge = 24;
+
+// Durations
+const Duration _durationFast = Duration(milliseconds: 100);
+const Duration _durationNormal = Duration(milliseconds: 200);
+const Duration _durationSlow = Duration(milliseconds: 300);
+
 // Light Theme - Base
 const Color _lightBackground = Color(0xFFFFFFFF);
 const Color _lightBorder = Color(0xFFE4E4E7);
@@ -73,11 +83,23 @@ const Color _darkToastWarning = Color(0xFFFFB35A);
 // INTERNAL - NO NEED TO EDIT BELOW
 // ============================================================================
 
-final Breakpoints _breakpoints = Breakpoints(
+final BreakpointTokens _breakpoints = BreakpointTokens(
   desktop: _desktopBreakpoint,
 );
 
-final AppColors _colorsLight = AppColors(
+final RadiusTokens _radii = RadiusTokens(
+  small: _radiusSmall,
+  medium: _radiusMedium,
+  large: _radiusLarge,
+);
+
+final DurationTokens _durations = DurationTokens(
+  fast: _durationFast,
+  normal: _durationNormal,
+  slow: _durationSlow,
+);
+
+final ColorTokens _colorsLight = ColorTokens(
   background: _lightBackground,
   border: _lightBorder,
   primaryText: _lightPrimaryText,
@@ -109,7 +131,7 @@ final AppColors _colorsLight = AppColors(
   ),
 );
 
-final AppColors _colorsDark = AppColors(
+final ColorTokens _colorsDark = ColorTokens(
   background: _darkBackground,
   border: _darkBorder,
   primaryText: _darkPrimaryText,
@@ -164,6 +186,8 @@ class Styling extends InheritedWidget {
     return StylingData(
       isDark: isDark,
       colors: isDark ? _colorsDark : _colorsLight,
+      radii: _radii,
+      durations: _durations,
       breakpoints: _breakpoints,
     );
   }
@@ -176,21 +200,49 @@ class Styling extends InheritedWidget {
 
 class StylingData {
   final bool isDark;
-  final AppColors colors;
-  final Breakpoints breakpoints;
+  final ColorTokens colors;
+  final RadiusTokens radii;
+  final DurationTokens durations;
+  final BreakpointTokens breakpoints;
 
   const StylingData({
     required this.isDark,
     required this.colors,
+    required this.radii,
+    required this.durations,
     required this.breakpoints,
   });
 }
 
-class Breakpoints {
+class BreakpointTokens {
   final double desktop;
 
-  const Breakpoints({
+  const BreakpointTokens({
     required this.desktop,
+  });
+}
+
+class RadiusTokens {
+  final double small;
+  final double medium;
+  final double large;
+
+  const RadiusTokens({
+    required this.small,
+    required this.medium,
+    required this.large,
+  });
+}
+
+class DurationTokens {
+  final Duration fast;
+  final Duration normal;
+  final Duration slow;
+
+  const DurationTokens({
+    required this.fast,
+    required this.normal,
+    required this.slow,
   });
 }
 
@@ -250,7 +302,7 @@ class ToastColors {
   });
 }
 
-class AppColors {
+class ColorTokens {
   final Color background;
   final Color border;
   final Color primaryText;
@@ -259,7 +311,7 @@ class AppColors {
   final NavigationColors navigation;
   final ToastColors toast;
 
-  const AppColors({
+  const ColorTokens({
     required this.background,
     required this.border,
     required this.primaryText,
