@@ -1,3 +1,12 @@
+## 0.2.0
+
+- **BREAKING**: refactor: `AppColors` renamed to `ColorTokens`                                                                                    
+- **BREAKING**: refactor: `Breakpoints` renamed to `BreakpointTokens`                                                                             
+- **BREAKING**: refactor: `breakpoints`, `radii`, `durations` now static (no context needed)                                                      
+- feat: add `RadiusTokens` (small, medium, large)                                                                                                 
+- feat: add `DurationTokens` (fast, normal, slow)                                                                                                 
+- refactor: restructure styling.dart (customizable values at top) 
+  
 ## 0.1.6
 
 * Added new `AlertPopup` widget.
