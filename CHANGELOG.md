@@ -1,3 +1,8 @@
+## 0.2.3
+
+* Add new `ToggleTile` widget with 3 variants: simple, bordered and filled. 
+* Add `surfaceContainer` color to the `Styling`, which we used for filled variant of `ToggleTile`.
+
 ## 0.2.2
 
 * Added new `Toggle` widget, which comes with haptic feedback, thumb-stretch animation and etc.
