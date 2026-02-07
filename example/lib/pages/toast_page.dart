@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:example/widgets/button.dart';
+import 'package:example/widgets/demo_section.dart';
 import 'package:example/widgets/toast.dart';
 
 class ToastPage extends StatelessWidget {
@@ -10,7 +11,7 @@ class ToastPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(
+        DemoSection(
           title: 'Toast Types',
           child: Wrap(
             spacing: 12,
@@ -55,7 +56,7 @@ class ToastPage extends StatelessWidget {
             ],
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Position',
           child: Wrap(
             spacing: 12,
@@ -82,7 +83,7 @@ class ToastPage extends StatelessWidget {
             ],
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Stacking',
           child: Wrap(
             spacing: 12,
@@ -110,27 +111,6 @@ class ToastPage extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildSection({required String title, required Widget child}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF71717A),
-            ),
-          ),
-          const SizedBox(height: 12),
-          child,
-        ],
-      ),
     );
   }
 }
