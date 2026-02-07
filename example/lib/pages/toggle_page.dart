@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:example/widgets/demo_section.dart';
 import 'package:example/widgets/toggle.dart';
 
 class TogglePage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _TogglePageState extends State<TogglePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(
+        DemoSection(
           title: 'Default',
           child: Row(
             children: [
@@ -35,7 +36,7 @@ class _TogglePageState extends State<TogglePage> {
             ],
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Small',
           child: Row(
             children: [
@@ -51,7 +52,7 @@ class _TogglePageState extends State<TogglePage> {
             ],
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Disabled',
           child: Row(
             children: [
@@ -62,27 +63,6 @@ class _TogglePageState extends State<TogglePage> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildSection({required String title, required Widget child}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF71717A),
-            ),
-          ),
-          const SizedBox(height: 12),
-          child,
-        ],
-      ),
     );
   }
 }

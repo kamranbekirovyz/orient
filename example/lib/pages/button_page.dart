@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:example/widgets/button.dart';
+import 'package:example/widgets/demo_section.dart';
 
 class ButtonPage extends StatefulWidget {
   const ButtonPage({super.key});
@@ -22,7 +23,7 @@ class _ButtonPageState extends State<ButtonPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(
+        DemoSection(
           title: 'Variants',
           child: Wrap(
             spacing: 12,
@@ -61,7 +62,7 @@ class _ButtonPageState extends State<ButtonPage> {
             ],
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Sizes',
           child: Row(
             children: [
@@ -79,7 +80,7 @@ class _ButtonPageState extends State<ButtonPage> {
             ],
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'With icon',
           child: Wrap(
             spacing: 12,
@@ -105,7 +106,7 @@ class _ButtonPageState extends State<ButtonPage> {
             ],
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Loading state',
           child: Row(
             children: [
@@ -117,7 +118,7 @@ class _ButtonPageState extends State<ButtonPage> {
             ],
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Disabled state',
           child: Wrap(
             spacing: 12,
@@ -160,24 +161,4 @@ class _ButtonPageState extends State<ButtonPage> {
     );
   }
 
-  Widget _buildSection({required String title, required Widget child}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF71717A),
-            ),
-          ),
-          const SizedBox(height: 12),
-          child,
-        ],
-      ),
-    );
-  }
 }

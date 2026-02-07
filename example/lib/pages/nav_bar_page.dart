@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:example/widgets/demo_section.dart';
 import 'package:example/widgets/nav_bar.dart';
 
 class NavBarPage extends StatefulWidget {
@@ -23,7 +24,7 @@ class _NavBarPageState extends State<NavBarPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(
+        DemoSection(
           title: 'Mobile (Bottom Bar)',
           child: _buildPreviewContainer(
             width: 375,
@@ -36,7 +37,7 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Desktop (Rail)',
           child: _buildPreviewContainer(
             width: 800,
@@ -53,7 +54,7 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'With Header & Footer',
           child: _buildPreviewContainer(
             width: 800,
@@ -156,27 +157,6 @@ class _NavBarPageState extends State<NavBarPage> {
       child: MediaQuery(
         data: MediaQueryData(size: Size(width, height)),
         child: child,
-      ),
-    );
-  }
-
-  Widget _buildSection({required String title, required Widget child}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF71717A),
-            ),
-          ),
-          const SizedBox(height: 12),
-          child,
-        ],
       ),
     );
   }

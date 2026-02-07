@@ -1,5 +1,6 @@
 import 'package:example/widgets/alert_popup.dart';
 import 'package:example/widgets/button.dart';
+import 'package:example/widgets/demo_section.dart';
 import 'package:flutter/material.dart';
 
 class AlertPopupPage extends StatelessWidget {
@@ -10,7 +11,7 @@ class AlertPopupPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(
+        DemoSection(
           title: 'Success',
           child: Button.small(
             onPressed: () {
@@ -33,7 +34,7 @@ class AlertPopupPage extends StatelessWidget {
             label: 'Show Alert',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Error',
           child: Button.small(
             onPressed: () {
@@ -57,7 +58,7 @@ class AlertPopupPage extends StatelessWidget {
             label: 'Show Alert',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Warning',
           child: Button.small(
             onPressed: () {
@@ -80,7 +81,7 @@ class AlertPopupPage extends StatelessWidget {
             label: 'Show Alert',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Info',
           child: Button.small(
             onPressed: () {
@@ -103,7 +104,7 @@ class AlertPopupPage extends StatelessWidget {
             label: 'Show Alert',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'No icon',
           child: Button.small(
             onPressed: () {
@@ -121,7 +122,7 @@ class AlertPopupPage extends StatelessWidget {
             label: 'Show Alert',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'No description',
           child: Button.small(
             onPressed: () {
@@ -142,7 +143,7 @@ class AlertPopupPage extends StatelessWidget {
             label: 'Show Alert',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'No action (tap outside to dismiss)',
           child: Button.small(
             onPressed: () {
@@ -160,7 +161,7 @@ class AlertPopupPage extends StatelessWidget {
             label: 'Show Alert',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Minimal (title only)',
           child: Button.small(
             onPressed: () {
@@ -173,27 +174,6 @@ class AlertPopupPage extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildSection({required String title, required Widget child}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF71717A),
-            ),
-          ),
-          const SizedBox(height: 12),
-          child,
-        ],
-      ),
     );
   }
 }

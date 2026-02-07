@@ -1,5 +1,6 @@
 import 'package:example/widgets/button.dart';
 import 'package:example/widgets/confirmation_popup.dart';
+import 'package:example/widgets/demo_section.dart';
 import 'package:example/widgets/toast.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class ConfirmationPopupPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(
+        DemoSection(
           title: 'Approve Feature',
           child: Button.small(
             onPressed: () {
@@ -38,7 +39,7 @@ class ConfirmationPopupPage extends StatelessWidget {
             label: 'Show Dialog',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Delete Item',
           child: Button.small(
             onPressed: () {
@@ -65,7 +66,7 @@ class ConfirmationPopupPage extends StatelessWidget {
             label: 'Show Dialog',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Logout',
           child: Button.small(
             onPressed: () {
@@ -93,7 +94,7 @@ class ConfirmationPopupPage extends StatelessWidget {
             label: 'Show Dialog',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Discard Changes',
           child: Button.small(
             onPressed: () {
@@ -120,7 +121,7 @@ class ConfirmationPopupPage extends StatelessWidget {
             label: 'Show Dialog',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Unsized Icon (auto 48x48)',
           child: Button.small(
             onPressed: () {
@@ -142,7 +143,7 @@ class ConfirmationPopupPage extends StatelessWidget {
             label: 'Show Dialog',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Minimal (no icon, no description)',
           child: Button.small(
             onPressed: () {
@@ -163,27 +164,6 @@ class ConfirmationPopupPage extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildSection({required String title, required Widget child}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF71717A),
-            ),
-          ),
-          const SizedBox(height: 12),
-          child,
-        ],
-      ),
     );
   }
 }
