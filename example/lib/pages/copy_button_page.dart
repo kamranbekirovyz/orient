@@ -1,5 +1,6 @@
 import 'package:example/styling.dart';
 import 'package:example/widgets/copy_button.dart';
+import 'package:example/widgets/demo_section.dart';
 import 'package:example/widgets/toast.dart';
 import 'package:flutter/widgets.dart';
 
@@ -13,7 +14,7 @@ class CopyButtonPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(
+        DemoSection(
           title: 'Default',
           child: Row(
             children: [
@@ -38,27 +39,6 @@ class CopyButtonPage extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildSection({required String title, required Widget child}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF71717A),
-            ),
-          ),
-          const SizedBox(height: 12),
-          child,
-        ],
-      ),
     );
   }
 }

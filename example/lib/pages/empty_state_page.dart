@@ -1,4 +1,5 @@
 import 'package:example/widgets/button.dart';
+import 'package:example/widgets/demo_section.dart';
 import 'package:example/widgets/empty_state.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class EmptyStatePage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(
+        DemoSection(
           title: 'Default',
           child: EmptyState(
             icon: Icon(
@@ -23,7 +24,7 @@ class EmptyStatePage extends StatelessWidget {
                 'When we send you notifications, you\'ll be able to see them here.',
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'With Action',
           child: EmptyState(
             icon: Icon(
@@ -42,27 +43,6 @@ class EmptyStatePage extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildSection({required String title, required Widget child}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF71717A),
-            ),
-          ),
-          const SizedBox(height: 12),
-          child,
-        ],
-      ),
     );
   }
 }

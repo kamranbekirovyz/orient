@@ -11,41 +11,17 @@ class PopupPage extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(
-          title: 'Comments',
-          child: Button.small(
-            onPressed: () {
-              Popup.show(
-                context: context,
-                title: 'Comments (3)',
-                child: _CommentsList(),
-              );
-            },
-            label: 'Show Popup',
-          ),
+        Button.small(
+          onPressed: () {
+            Popup.show(
+              context: context,
+              title: 'Comments (3)',
+              child: _CommentsList(),
+            );
+          },
+          label: 'Show Popup',
         ),
       ],
-    );
-  }
-
-  Widget _buildSection({required String title, required Widget child}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF71717A),
-            ),
-          ),
-          const SizedBox(height: 12),
-          child,
-        ],
-      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:example/widgets/demo_section.dart';
 import 'package:example/widgets/toggle_tile.dart';
 
 class ToggleTilePage extends StatefulWidget {
@@ -20,7 +21,7 @@ class _ToggleTilePageState extends State<ToggleTilePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSection(
+        DemoSection(
           title: 'Simple',
           child: ToggleTile(
             title: 'Notifications',
@@ -29,7 +30,7 @@ class _ToggleTilePageState extends State<ToggleTilePage> {
             onChanged: (v) => setState(() => _simple = v),
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Bordered',
           child: ToggleTile(
             variant: ToggleTileVariant.bordered,
@@ -39,7 +40,7 @@ class _ToggleTilePageState extends State<ToggleTilePage> {
             onChanged: (v) => setState(() => _bordered = v),
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Filled',
           child: ToggleTile(
             variant: ToggleTileVariant.filled,
@@ -49,7 +50,7 @@ class _ToggleTilePageState extends State<ToggleTilePage> {
             onChanged: (v) => setState(() => _filled = v),
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'Title Only',
           child: ToggleTile(
             variant: ToggleTileVariant.bordered,
@@ -58,7 +59,7 @@ class _ToggleTilePageState extends State<ToggleTilePage> {
             onChanged: (v) => setState(() => _titleOnly = v),
           ),
         ),
-        _buildSection(
+        DemoSection(
           title: 'With Leading',
           child: ToggleTile(
             variant: ToggleTileVariant.bordered,
@@ -70,27 +71,6 @@ class _ToggleTilePageState extends State<ToggleTilePage> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildSection({required String title, required Widget child}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF71717A),
-            ),
-          ),
-          const SizedBox(height: 12),
-          child,
-        ],
-      ),
     );
   }
 }
