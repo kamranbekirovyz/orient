@@ -11,14 +11,6 @@ class SpinnerPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         DemoSection(
-          title: 'Default',
-          child: const Row(
-            children: [
-              Spinner(color: Color(0xFF18181B)),
-            ],
-          ),
-        ),
-        DemoSection(
           title: 'Colors',
           child: const Row(
             children: [
@@ -61,30 +53,6 @@ class SpinnerPage extends StatelessWidget {
                 child: const Spinner(color: Color(0xFF18181B)),
               ),
             ],
-          ),
-        ),
-        DemoSection(
-          title: 'Usage in context',
-          child: Container(
-            padding: const EdgeInsets.all(24),
-            decoration: BoxDecoration(
-              color: const Color(0xFFF4F4F5),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Spinner(color: Color(0xFF18181B)),
-                SizedBox(width: 12),
-                Text(
-                  'Loading content...',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xFF71717A),
-                  ),
-                ),
-              ],
-            ),
           ),
         ),
       ],
