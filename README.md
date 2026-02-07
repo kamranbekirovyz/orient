@@ -128,13 +128,13 @@ orient_ui add <widget>  # Add a specific widget
 - [x] ConfirmationPopup
 - [x] SearchField
 - [x] Toggle
+- [x] ToggleTile
 
 ### In Progress
-- [ ] ToggleTile
+- [ ] Tile
 - [ ] TextField
 
 ### Coming Soon
-- [ ] ListTile
 - [ ] Tabs
 - [ ] InlineTabs
 - [ ] Radio
