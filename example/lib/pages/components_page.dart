@@ -9,6 +9,7 @@ import 'package:example/pages/search_field_page.dart';
 import 'package:example/pages/spinner_page.dart';
 import 'package:example/pages/toast_page.dart';
 import 'package:example/pages/toggle_page.dart';
+import 'package:example/pages/toggle_tile_page.dart';
 import 'package:example/styling.dart';
 import 'package:flutter/widgets.dart';
 
@@ -24,6 +25,7 @@ class ComponentsPage extends StatelessWidget {
     final sections = [
       _componentSection('Button', styling, const ButtonPage()),
       _componentSection('Toggle', styling, const TogglePage()),
+      _componentSection('Toggle Tile', styling, const ToggleTilePage()),
       _componentSection('Copy Button', styling, const CopyButtonPage()),
       _componentSection('Search Field', styling, const SearchFieldPage()),
       _componentSection('Spinner', styling, const SpinnerPage()),

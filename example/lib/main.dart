@@ -139,8 +139,9 @@ class _PlaygroundShellState extends State<PlaygroundShell> {
 
             return Button.small(
               onPressed: () {
-                _brightnessNotifier.value =
-                    isDark ? Brightness.light : Brightness.dark;
+                _brightnessNotifier.value = isDark
+                    ? Brightness.light
+                    : Brightness.dark;
               },
               icon: Icon(
                 isDark ? Icons.light_mode : Icons.dark_mode,

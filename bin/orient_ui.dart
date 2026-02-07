@@ -22,6 +22,10 @@ final Map<String, ComponentInfo> components = {
   'popup': ComponentInfo('popup.dart'),
   'search_field': ComponentInfo('search_field.dart'),
   'toggle': ComponentInfo('toggle.dart'),
+  'toggle_tile': ComponentInfo(
+    'toggle_tile.dart',
+    dependencies: ['toggle'],
+  ),
 };
 
 void main(List<String> args) async {

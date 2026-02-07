@@ -24,6 +24,7 @@ const Color _lightPrimaryText = Color(0xFF2A2A2A);
 const Color _lightSecondaryText = Color(0xFFACAEAF);
 const Color _lightAccent = Color(0xFF18181B);
 const Color _lightAccentForeground = Color(0xFFFAFAFA);
+const Color _lightSurfaceContainer = Color(0xFFFAFAFA);
 
 // Light Theme - Button
 const Color _lightButtonPrimary = Color(0xFF18181B);
@@ -57,6 +58,7 @@ const Color _darkPrimaryText = Color(0xFFFAFAFA);
 const Color _darkSecondaryText = Color(0xFFB2B2B2);
 const Color _darkAccent = Color(0xFFFAFAFA);
 const Color _darkAccentForeground = Color(0xFF18181B);
+const Color _darkSurfaceContainer = Color(0xFF121212);
 
 // Dark Theme - Button
 const Color _darkButtonPrimary = Color(0xFFFAFAFA);
@@ -110,6 +112,7 @@ final ColorTokens _colorsLight = ColorTokens(
   secondaryText: _lightSecondaryText,
   accent: _lightAccent,
   accentForeground: _lightAccentForeground,
+  surfaceContainer: _lightSurfaceContainer,
   button: ButtonColors(
     primary: _lightButtonPrimary,
     primaryForeground: _lightButtonPrimaryForeground,
@@ -144,6 +147,7 @@ final ColorTokens _colorsDark = ColorTokens(
   secondaryText: _darkSecondaryText,
   accent: _darkAccent,
   accentForeground: _darkAccentForeground,
+  surfaceContainer: _darkSurfaceContainer,
   button: ButtonColors(
     primary: _darkButtonPrimary,
     primaryForeground: _darkButtonPrimaryForeground,
@@ -322,6 +326,7 @@ class ColorTokens {
   final Color secondaryText;
   final Color accent;
   final Color accentForeground;
+  final Color surfaceContainer;
   final ButtonColors button;
   final NavigationColors navigation;
   final ToastColors toast;
@@ -333,6 +338,7 @@ class ColorTokens {
     required this.secondaryText,
     required this.accent,
     required this.accentForeground,
+    required this.surfaceContainer,
     required this.button,
     required this.navigation,
     required this.toast,
