@@ -1,3 +1,7 @@
+## 0.2.5
+
+* Added auto-update mechanisma for CLI.
+
 ## 0.2.4
 
 * Add new `Tile` widget with 3 variants: simple, bordered and filled.
