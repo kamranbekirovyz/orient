@@ -21,6 +21,7 @@ final Map<String, ComponentInfo> components = {
   'alert_popup': ComponentInfo('alert_popup.dart'),
   'popup': ComponentInfo('popup.dart'),
   'search_field': ComponentInfo('search_field.dart'),
+  'tile': ComponentInfo('tile.dart'),
   'toggle': ComponentInfo('toggle.dart'),
   'toggle_tile': ComponentInfo(
     'toggle_tile.dart',
