@@ -93,101 +93,118 @@ class CardBoxPage extends StatelessWidget {
           ),
         ),
 
-        // Pricing cards — side by side
+        // Pricing cards — row on desktop, column on mobile
         DemoSection(
           title: 'Filled',
-          child: Row(
-            children: [
-              Expanded(
-                child: CardBox(
-                  variant: CardBoxVariant.filled,
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Pro',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.w700,
-                          color: colors.primaryText,
-                        ),
+          child: Builder(
+            builder: (context) {
+              final isDesktop = MediaQuery.of(context).size.width >=
+                  Styling.breakpoints.desktop;
+
+              final proCard = CardBox(
+                variant: CardBoxVariant.filled,
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Pro',
+                      style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.w700,
+                        color: colors.primaryText,
                       ),
-                      const SizedBox(height: 2),
-                      Text(
-                        '\$29/mo',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: colors.secondaryText,
-                        ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      '\$29/mo',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: colors.secondaryText,
                       ),
-                      const SizedBox(height: 14),
-                      _featureRow(colors, TablerIcons.check, '10 projects'),
-                      const SizedBox(height: 6),
-                      _featureRow(colors, TablerIcons.check, 'Email support'),
-                      const SizedBox(height: 6),
-                      _featureRow(colors, TablerIcons.check, '5 GB storage'),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 14),
+                    _featureRow(colors, TablerIcons.check, '10 projects'),
+                    const SizedBox(height: 6),
+                    _featureRow(colors, TablerIcons.check, 'Email support'),
+                    const SizedBox(height: 6),
+                    _featureRow(colors, TablerIcons.check, '5 GB storage'),
+                  ],
                 ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: CardBox(
-                  variant: CardBoxVariant.filled,
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            'Enterprise',
+              );
+
+              final enterpriseCard = CardBox(
+                variant: CardBoxVariant.filled,
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'Enterprise',
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.w700,
+                            color: colors.primaryText,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: colors.accent,
+                            borderRadius:
+                                BorderRadius.circular(Styling.radii.small),
+                          ),
+                          child: Text(
+                            'Popular',
                             style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
-                              color: colors.primaryText,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w600,
+                              color: colors.accentForeground,
                             ),
                           ),
-                          const SizedBox(width: 8),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 6, vertical: 2),
-                            decoration: BoxDecoration(
-                              color: colors.accent,
-                              borderRadius:
-                                  BorderRadius.circular(Styling.radii.small),
-                            ),
-                            child: Text(
-                              'Popular',
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600,
-                                color: colors.accentForeground,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 2),
-                      Text(
-                        '\$99/mo',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: colors.secondaryText,
                         ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      '\$99/mo',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: colors.secondaryText,
                       ),
-                      const SizedBox(height: 14),
-                      _featureRow(colors, TablerIcons.check, 'Unlimited'),
-                      const SizedBox(height: 6),
-                      _featureRow(colors, TablerIcons.check, 'Priority support'),
-                      const SizedBox(height: 6),
-                      _featureRow(colors, TablerIcons.check, '100 GB storage'),
-                    ],
-                  ),
+                    ),
+                    const SizedBox(height: 14),
+                    _featureRow(colors, TablerIcons.check, 'Unlimited projects'),
+                    const SizedBox(height: 6),
+                    _featureRow(colors, TablerIcons.check, 'Priority support'),
+                    const SizedBox(height: 6),
+                    _featureRow(colors, TablerIcons.check, '100 GB storage'),
+                  ],
                 ),
-              ),
-            ],
+              );
+
+              if (isDesktop) {
+                return Row(
+                  children: [
+                    Expanded(child: proCard),
+                    const SizedBox(width: 12),
+                    Expanded(child: enterpriseCard),
+                  ],
+                );
+              }
+
+              return Column(
+                children: [
+                  proCard,
+                  const SizedBox(height: 12),
+                  enterpriseCard,
+                ],
+              );
+            },
           ),
         ),
 
@@ -259,11 +276,13 @@ class CardBoxPage extends StatelessWidget {
       children: [
         Icon(icon, size: 16, color: colors.primaryText),
         const SizedBox(width: 8),
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: 14,
-            color: colors.primaryText,
+        Flexible(
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: 14,
+              color: colors.primaryText,
+            ),
           ),
         ),
       ],
