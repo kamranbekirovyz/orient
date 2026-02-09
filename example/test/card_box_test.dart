@@ -22,6 +22,7 @@ void main() {
       testWidgets('renders bordered variant', (tester) async {
         await tester.pumpWidget(wrapWithStyling(
           const CardBox(
+            variant: CardBoxVariant.bordered,
             child: Text('Bordered'),
           ),
         ));
