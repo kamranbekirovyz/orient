@@ -18,6 +18,7 @@ final Map<String, ComponentInfo> components = {
   ),
   'copy_button': ComponentInfo('copy_button.dart'),
   'empty_state': ComponentInfo('empty_state.dart'),
+  'input': ComponentInfo('input.dart'),
   'nav_bar': ComponentInfo('nav_bar.dart'),
   'spinner': ComponentInfo('spinner.dart'),
   'toast': ComponentInfo('toast.dart'),

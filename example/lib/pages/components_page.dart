@@ -3,6 +3,7 @@ import 'package:example/pages/button_page.dart';
 import 'package:example/pages/confirmation_popup_page.dart';
 import 'package:example/pages/copy_button_page.dart';
 import 'package:example/pages/empty_state_page.dart';
+import 'package:example/pages/input_page.dart';
 import 'package:example/pages/nav_bar_page.dart';
 import 'package:example/pages/popup_page.dart';
 import 'package:example/pages/search_field_page.dart';
@@ -36,6 +37,7 @@ class ComponentsPage extends StatelessWidget {
       _componentSection('ConfirmationPopup', 'confirmation_popup', styling, const ConfirmationPopupPage()),
       _componentSection('Popup', 'popup', styling, const PopupPage()),
       _componentSection('EmptyState', 'empty_state', styling, const EmptyStatePage()),
+      _componentSection('Input', 'input', styling, const InputPage()),
       _componentSection('NavBar', 'nav_bar', styling, const NavBarPage()),
     ];
 

@@ -26,6 +26,11 @@ const Color _lightAccent = Color(0xFF18181B);
 const Color _lightAccentForeground = Color(0xFFFAFAFA);
 const Color _lightSurfaceContainer = Color(0xFFFAFAFA);
 
+// Light Theme - Input
+const Color _lightInputBorder = Color(0xFFE4E4E7);
+const Color _lightInputBorderFocus = Color(0xFF18181B);
+const Color _lightInputError = Color(0xFFEF4444);
+
 // Light Theme - Button
 const Color _lightButtonPrimary = Color(0xFF18181B);
 const Color _lightButtonPrimaryForeground = Color(0xFFFAFAFA);
@@ -59,6 +64,11 @@ const Color _darkSecondaryText = Color(0xFFB2B2B2);
 const Color _darkAccent = Color(0xFFFAFAFA);
 const Color _darkAccentForeground = Color(0xFF18181B);
 const Color _darkSurfaceContainer = Color(0xFF121212);
+
+// Dark Theme - Input
+const Color _darkInputBorder = Color(0xFF27272A);
+const Color _darkInputBorderFocus = Color(0xFFD4D4D8);
+const Color _darkInputError = Color(0xFFEF4444);
 
 // Dark Theme - Button
 const Color _darkButtonPrimary = Color(0xFFFAFAFA);
@@ -123,6 +133,11 @@ final ColorTokens _colorsLight = ColorTokens(
     link: _lightButtonLink,
     accent: _lightButtonAccent,
   ),
+  input: InputColors(
+    border: _lightInputBorder,
+    borderFocus: _lightInputBorderFocus,
+    error: _lightInputError,
+  ),
   navigation: NavigationColors(
     railBackground: _lightNavRailBackground,
     railItemBackgroundActive: _lightNavRailItemBackgroundActive,
@@ -157,6 +172,11 @@ final ColorTokens _colorsDark = ColorTokens(
     destructiveForeground: _darkButtonDestructiveForeground,
     link: _darkButtonLink,
     accent: _darkButtonAccent,
+  ),
+  input: InputColors(
+    border: _darkInputBorder,
+    borderFocus: _darkInputBorderFocus,
+    error: _darkInputError,
   ),
   navigation: NavigationColors(
     railBackground: _darkNavRailBackground,
@@ -305,6 +325,18 @@ class NavigationColors {
   });
 }
 
+class InputColors {
+  final Color border;
+  final Color borderFocus;
+  final Color error;
+
+  const InputColors({
+    required this.border,
+    required this.borderFocus,
+    required this.error,
+  });
+}
+
 class ToastColors {
   final Color success;
   final Color error;
@@ -328,6 +360,7 @@ class ColorTokens {
   final Color accentForeground;
   final Color surfaceContainer;
   final ButtonColors button;
+  final InputColors input;
   final NavigationColors navigation;
   final ToastColors toast;
 
@@ -340,6 +373,7 @@ class ColorTokens {
     required this.accentForeground,
     required this.surfaceContainer,
     required this.button,
+    required this.input,
     required this.navigation,
     required this.toast,
   });
