@@ -1,3 +1,8 @@
+## 0.2.7
+
+* Change API from `showToast()` to `Toast.show()` to make it same with other widgets
+* Change in/out animation duration from `DurationTokens.slow` to `DurationTokens.normal`. Now better.
+
 ## 0.2.6
 
 * Added new `CardBox` widget. It's what we know from Material as `Card`. Distinctively, it has two modes: bordered and filled (default). Filled looks pretty cool.
